@@ -8,7 +8,7 @@ from will.decorators import respond_to
 class ImagesPlugin(WillPlugin):
 
     @respond_to("image (?P<search_query>.*)$")
-    def image_me(self, message, search_query):
+    def image_search(self, message, search_query):
         """Search image on google images and post a random one."""
         data = {
             "q": search_query,

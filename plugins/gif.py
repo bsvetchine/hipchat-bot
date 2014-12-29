@@ -8,7 +8,7 @@ from will.decorators import respond_to
 class GifPlugin(WillPlugin):
 
     @respond_to("gif (?P<search_query>.*)$")
-    def image_me(self, message, search_query):
+    def gif_search(self, message, search_query):
         """Search GIF images using Giphy and post a random one."""
         data = {
             "q": search_query,
