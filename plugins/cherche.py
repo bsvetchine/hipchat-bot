@@ -1,7 +1,10 @@
 # coding: utf-8
 import requests
+
 from will.plugin import WillPlugin
 from will.decorators import respond_to
+
+from .. import app_settings
 
 
 class SearchPlugin(WillPlugin):
@@ -11,7 +14,7 @@ class SearchPlugin(WillPlugin):
         """Use Google Places API to search stuff."""
         data = {
             "query": search_query,
-            "key": "AIzaSyCB_F2sXqH-kJ9PWkdQ7xVY90zZR4ppceo"
+            "key": app_settings.GOOGLE_MAPS_API_KEY
         }
         r = requests.get(
             "https://maps.googleapis.com/maps/api/place/textsearch/json",
