@@ -14,10 +14,16 @@ class SearchPlugin(WillPlugin):
             "key": "AIzaSyCB_F2sXqH-kJ9PWkdQ7xVY90zZR4ppceo"
         }
         r = requests.get(
-            "https://maps.googleapis.com/maps/api/place/nearbysearch/json",
+            "https://maps.googleapis.com/maps/api/place/textsearch/json",
             params=data)
         try:
-            results = r.json()
+            results = r.json()["results"]
         except TypeError:
             results = []
-        self.say(u"%s" % results, message=message)
+        # construct search text response
+        help_text = ""
+        for result in results[0:10]:
+            help_text += "<b>{name}</b>: {address}</br>".format(
+                name=result["name"],
+                address=result["formatted_address"])
+        self.say(help_text, message=message, html=True)
