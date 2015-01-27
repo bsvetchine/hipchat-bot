@@ -1,10 +1,10 @@
 # coding: utf-8
+import os
+
 from will.plugin import WillPlugin
 from will.decorators import respond_to
 
 from github import Github
-
-from .. import app_settings
 
 
 class GithubTools(WillPlugin):
@@ -18,8 +18,8 @@ class GithubTools(WillPlugin):
     @respond_to("liste les PR")
     def list_pr(self, message):
         g = Github(
-            app_settings.GITHUB_API_LOGIN,
-            app_settings.GITHUB_API_PWD)
+            os.environ["GITHUB_API_LOGIN"],
+            os.environ["GITHUB_API_PWD"])
         user = g.get_user()
         spicesoft = self.get_spicesoft(user.get_orgs())
         pr_txt = ""

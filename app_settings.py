@@ -1,7 +1,0 @@
-import os
-
-
-GOOGLE_MAPS_API_KEY = os.environ["GOOGLE_MAPS_API_KEY"]
-GIPHY_API_KEY = os.environ["GIPHY_API_KEY"]
-GITHUB_API_LOGIN = os.environ["GITHUB_API_LOGIN"]
-GITHUB_API_PWD = os.environ["GITHUB_API_PWD"]

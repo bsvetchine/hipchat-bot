@@ -1,11 +1,10 @@
 # coding: utf-8
+import os
 import random
 import requests
 
 from will.plugin import WillPlugin
 from will.decorators import respond_to
-
-from .. import app_settings
 
 
 class GifPlugin(WillPlugin):
@@ -15,7 +14,7 @@ class GifPlugin(WillPlugin):
         """Search GIF images using Giphy and post a random one."""
         data = {
             "q": search_query,
-            "api_key": app_settings.GIPHY_API_KEY
+            "api_key": os.environ["GIPHY_API_KEY"]
         }
         r = requests.get(
             "http://api.giphy.com/v1/gifs/search",
