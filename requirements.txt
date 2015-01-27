@@ -1,1 +1,1 @@
--e git+ssh://git@github.com/skoczen/will.git#egg=will
+-e git+https://github.com/skoczen/will.git#egg=will
